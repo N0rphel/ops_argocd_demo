@@ -20,3 +20,23 @@ spec:
           image: norphel/argo_rails_app:latest
           ports:
             - containerPort: 3000
+          env:
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-app-secret
+                  key: secret_key_base
+            - name: RAILS_ENV
+              value: production
+            - name: PORT
+              value: "3000"
+          command:
+            [
+              "bundle",
+              "exec",
+              "puma",
+              "-C",
+              "config/puma.rb",
+              "-b",
+              "tcp://0.0.0.0:3000",
+            ]
