@@ -6,6 +6,7 @@ metadata:
 spec:
   parentRefs:
     - name: nginx-gateway
+      namespace: default
   hostnames:
     - "argocd-app-pc.o.selise.dev"
   rules:
