@@ -16,7 +16,7 @@ spec:
         app: argocd-app
     spec:
       containers:
-        - name: argocd-app-container
-          image: nginx:latest
+        - name: argocd-railsapp-container
+          image: norphel/argo_rails_app:latest
           ports:
-            - containerPort: 80
+            - containerPort: 3000
